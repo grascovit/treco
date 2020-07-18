@@ -6,7 +6,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.1'
 
 gem 'bootsnap', '~> 1.4.6', require: false
+gem 'devise', '~> 4.7.2'
 gem 'image_processing', '~> 1.11.0'
+gem 'omniauth', '~> 1.9.1'
 gem 'pg', '~> 1.2.3'
 gem 'puma', '~> 4.3.5'
 gem 'rails', '~> 6.0.3.2'
@@ -30,6 +32,7 @@ end
 
 group :test do
   gem 'database_cleaner-active_record', '~> 1.8.0'
+  gem 'faker', '~> 2.13.0'
   gem 'shoulda-matchers', '~> 4.3.0'
 end
 
