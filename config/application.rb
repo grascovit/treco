@@ -24,5 +24,8 @@ module Treco
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Load I18n
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
   end
 end

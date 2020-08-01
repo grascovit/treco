@@ -1,0 +1,19 @@
+<% if flash.any? %>
+  <div class="columns is-centered">
+    <div class="column is-narrow">
+      <% flash.each do |type, value| %>
+        <div class="notification is-light <%= flash_class(type) %>">
+          <% if value.kind_of?(Array) %>
+            <ul class="flash-list">
+              <% value.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <%= value %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,73 @@
+<%= render 'shared/error_messages', object: resource %>
+<div class="columns is-mobile is-centered">
+  <div class="column is-narrow">
+    <h4 class="title is-4 has-text-centered">
+      <%= t('.header') %>
+    </h4>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <div class="field">
+        <%= f.label :first_name, class: 'label' %>
+        <div class="control">
+          <%= f.text_field :first_name, class: 'input', autofocus: true, autocomplete: 'given-name', placeholder: 'John' %>
+        </div>
+      </div>
+      <div class="field">
+        <%= f.label :last_name, class: 'label' %>
+        <div class="control">
+          <%= f.text_field :last_name, class: 'input', autocomplete: 'family-name', placeholder: 'Doe' %>
+        </div>
+      </div>
+      <div class="field">
+        <%= f.label :phone_number, class: 'label' %>
+        <div class="control">
+          <%= f.phone_field :phone_number, class: 'input', autocomplete: 'phone', placeholder: '+XX XX XXXXX-XXXX' %>
+        </div>
+      </div>
+      <div class="field">
+        <%= f.label :email, class: 'label' %>
+        <div class="control">
+          <%= f.email_field :email, class: 'input', autocomplete: 'email', placeholder: 'john@doe.com' %>
+        </div>
+      </div>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div><%= t('.waiting_confirmation', email: resource.unconfirmed_email) %></div>
+      <% end %>
+      <div class="field">
+        <%= f.label :password, class: 'label' %>
+        <div class="control">
+          <%= f.password_field :password, class: 'input', autocomplete: 'new-password' %>
+          <% if @minimum_password_length %>
+            <p class="help">
+              <%= t('.minimum_characters', length: @minimum_password_length) %>
+            </p>
+          <% end %>
+          <p class="help">
+            <%= t('.optional_password') %>
+          </p>
+        </div>
+      </div>
+      <div class="field">
+        <%= f.label :password_confirmation, class: 'label' %>
+        <div class="control">
+          <%= f.password_field :password_confirmation, class: 'input', autocomplete: 'new-password' %>
+        </div>
+      </div>
+      <div class="field">
+        <%= f.label :current_password, class: 'label' %>
+        <%= f.password_field :current_password, class: 'input', required: true, autocomplete: 'current-password' %>
+        <p class="help">
+          <%= t('.required_current_password') %>
+        </p>
+      </div>
+      <div class="field">
+        <div class="control">
+          <%= f.submit t('.update'), class: 'button is-primary is-fullwidth' %>
+        </div>
+      </div>
+    <% end %>
+    <%= button_to t('.deactivate_account'),
+                  registration_path(resource_name),
+                  class: 'button is-danger is-outlined is-fullwidth mt-3',
+                  data: { confirm: t('.confirmation_message') }, method: :delete %>
+  </div>
+</div>

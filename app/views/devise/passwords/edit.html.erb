@@ -1,0 +1,34 @@
+<%= render 'shared/error_messages', object: resource %>
+<div class="columns is-mobile is-centered">
+  <div class="column is-narrow">
+    <h4 class="title is-4 has-text-centered">
+      <%= t('.header') %>
+    </h4>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.hidden_field :reset_password_token %>
+      <div class="field">
+        <%= f.label :password, t('.new_password'), class: 'label' %>
+        <div class="control">
+          <%= f.password_field :password, class: 'input', required: true, autofocus: true, autocomplete: 'new-password' %>
+          <% if @minimum_password_length %>
+            <p class="help">
+              <%= t('.minimum_characters', length: @minimum_password_length) %>
+            </p>
+          <% end %>
+        </div>
+      </div>
+      <div class="field">
+        <%= f.label :password_confirmation, t('.confirm_new_password'), class: 'label' %>
+        <div class="control">
+          <%= f.password_field :password_confirmation, class: 'input', required: true, autocomplete: 'new-password' %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <%= f.submit t('.change'), class: 'button is-primary is-fullwidth' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%= render 'devise/shared/links' %>

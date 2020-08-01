@@ -1,0 +1,9 @@
+en:
+  devise:
+    shared:
+      links:
+        login: "Log in"
+        sign_up: "Sign up"
+        forgot_password: "Forgot your password?"
+        confirmation_email: "Didn't receive confirmation instructions?"
+        oauth: "Sign in with %{provider}"

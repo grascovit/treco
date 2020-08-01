@@ -6,7 +6,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.1'
 
 gem 'bootsnap', '~> 1.4.6', require: false
+gem 'bulma-rails', '~> 0.9.0'
 gem 'devise', '~> 4.7.2'
+gem 'font-awesome-sass', '~> 5.13.0'
 gem 'image_processing', '~> 1.11.0'
 gem 'omniauth', '~> 1.9.1'
 gem 'pg', '~> 1.2.3'
@@ -24,6 +26,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'letter_opener', '~> 1.7.0'
   gem 'listen', '~> 3.2.1'
   gem 'rubocop', '~> 0.88.0', require: false
   gem 'spring', '~> 2.1.0'

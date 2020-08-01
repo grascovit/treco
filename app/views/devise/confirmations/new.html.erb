@@ -1,0 +1,22 @@
+<%= render 'shared/error_messages', object: resource %>
+<div class="columns is-mobile is-centered">
+  <div class="column is-narrow">
+    <h4 class="title is-4 has-text-centered">
+      <%= t('.header') %>
+    </h4>
+    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+      <div class="field">
+        <%= f.label :email, class: 'label' %>
+        <div class="control">
+          <%= f.email_field :email, class: 'input', required: true, autofocus: true, autocomplete: 'email', value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <%= f.submit t('.resend'), class: 'button is-primary is-fullwidth' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%= render 'devise/shared/links' %>
