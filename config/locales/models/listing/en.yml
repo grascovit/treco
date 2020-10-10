@@ -1,0 +1,5 @@
+en:
+  activerecord:
+    attributes:
+      listing:
+        zip_code: "ZIP Code"

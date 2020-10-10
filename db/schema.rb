@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_18_143351) do
+ActiveRecord::Schema.define(version: 2020_08_03_003925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "listings", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "brand"
+    t.string "model"
+    t.decimal "price"
+    t.string "zip_code"
+    t.boolean "private", default: false
+    t.bigint "owner_id"
+    t.datetime "negotiated_at"
+    t.datetime "deleted_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["owner_id"], name: "index_listings_on_owner_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name", default: "", null: false
@@ -46,4 +62,5 @@ ActiveRecord::Schema.define(version: 2020_07_18_143351) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "listings", "users", column: "owner_id"
 end
