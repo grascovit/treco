@@ -9,7 +9,7 @@ gem 'bootsnap', '~> 1.4.6', require: false
 gem 'bulma-rails', '~> 0.9.0'
 gem 'devise', '~> 4.7.2'
 gem 'font-awesome-sass', '~> 5.13.0'
-gem 'image_processing', '~> 1.11.0'
+gem 'image_processing', '~> 1.12.2'
 gem 'omniauth', '~> 1.9.1'
 gem 'pg', '~> 1.2.3'
 gem 'puma', '~> 4.3.5'
